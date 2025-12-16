@@ -1,0 +1,5 @@
+---
+# https://github.com/apps/settings
+repository:
+  description: Mount Hetzner storage box on linux systems.
+  topics: ansible, ansible-galaxy, molecule, role

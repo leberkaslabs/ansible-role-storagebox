@@ -1,0 +1,32 @@
+---
+- name: Install required packages
+  ansible.builtin.package:
+    name: cifs-utils
+    state: present
+
+- name: Create the mountpoint directory for the Hetzner storage box
+  ansible.builtin.file:
+    path: "{{ storagebox_mount_path }}"
+    owner: "{{ storagebox_mount_owner }}"
+    group: "{{ storagebox_mount_group }}"
+    state: directory
+    mode: "0750"
+
+- name: Manage the storagebox mount credentials file
+  ansible.builtin.template:
+    src: storagebox-credentials.txt.j2
+    dest: "{{ storagebox_mount_credentials }}"
+    owner: "{{ storagebox_mount_owner }}"
+    group: "{{ storagebox_mount_group }}"
+    mode: "0600"
+  no_log: true
+
+- name: Mount the Hetzner storage box
+  ansible.posix.mount:
+    fstype: cifs
+    opts: "{{ storagebox_mount_options | join(',') }}"
+    path: "{{ storagebox_mount_path }}"
+    src: "{{ storagebox_mount_source | regex_replace('\\\\{1}', '/') }}"
+    state: mounted
+  tags:
+    - molecule-notest

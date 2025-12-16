@@ -1,0 +1,21 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: storagebox
+  author: dudecalledbro
+  description: Mount Hetzner storage box on linux systems.
+  license: License (MIT)
+  min_ansible_version: "2.15"
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+
+  galaxy_tags:
+    - hetzner
+    - storagebox
+    - system

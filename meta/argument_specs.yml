@@ -1,0 +1,40 @@
+---
+argument_specs:
+  main:
+    short_description: storagebox
+    description: Mount Hetzner storage box on linux systems.
+    author: dudecalledbro
+    options:
+      storagebox_mount_path:
+        type: str
+        required: true
+        description: Define the mount point for the storagebox
+      storagebox_mount_owner:
+        type: str
+        required: true
+        description: Define the owner of the storagebox mountpoint files
+      storagebox_mount_group:
+        type: str
+        required: true
+        description: Define the group of the storagebox mountpoint files
+      storagebox_mount_credentials:
+        type: str
+        required: true
+        description: Define the path to store the storagebox credentials file
+      storagebox_mount_source:
+        type: str
+        required: true
+        description: Define the storagebox mount source
+      storagebox_mount_username:
+        type: str
+        required: true
+        description: Define the storagebox mount username
+      storagebox_mount_password:
+        type: str
+        required: true
+        description: Define the storagebox mount password
+      storagebox_mount_options:
+        type: list
+        elements: str
+        required: true
+        description: Define the mount options for the storagebox CIFS connection
