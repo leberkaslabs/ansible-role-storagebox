@@ -3,11 +3,6 @@
   hosts: all
   gather_facts: true
 
-  vars:
-    storagebox_mount_source: \\molecule.your-storagebox.de
-    storagebox_mount_username: molecule
-    storagebox_mount_password: molecule
-
   pre_tasks:
     - name: Update cache (Debian)
       ansible.builtin.apt:
@@ -16,4 +11,4 @@
       when: ansible_os_family == "Debian"
 
   roles:
-    - dudecalledbro.storagebox
+    - leberkaslabs.storagebox

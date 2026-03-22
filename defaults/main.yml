@@ -24,6 +24,7 @@ storagebox_mount_password: <password>
 # Define the mount options for the storagebox CIFS connection
 # These options control the access and behavior of the mounted file system
 storagebox_mount_options:
+  # yamllint disable-line rule:quoted-strings
   - "credentials={{ storagebox_mount_credentials }}"
   - dir_mode=0770
   - file_mode=0660

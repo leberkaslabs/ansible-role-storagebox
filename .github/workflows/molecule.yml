@@ -1,7 +1,7 @@
 ---
 name: Ansible Molecule
 
-on:
+'on':
   push:
     branches:
       - main
